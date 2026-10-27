@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyAI | Aprende con ayuda de la IA</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER / NAVEGACIÓN
+    ========================== -->
+    <header class="header">
+
+        <div class="logo">
+            <div class="logo-icon">🎓</div>
+            <h1>Study<span>AI</span></h1>
+        </div>
+
+        <nav class="nav">
+
+            <a href="#inicio" class="nav-link active">
+                Inicio
+            </a>
+
+            <a href="#espanol" class="nav-link">
+                Español
+            </a>
+
+            <a href="#matematicas" class="nav-link">
+                Matemáticas
+            </a>
+
+            <a href="#studyai" class="nav-link">
+                StudyAI
+            </a>
+
+            <a href="#geolocalizacion" class="nav-link">
+                Geolocalización
+            </a>
+
+            <a href="#contacto" class="nav-link">
+                Contacto
+            </a>
+
+        </nav>
+
+        <a href="login.html" class="btn-login">
+            👤 Login
+        </a>
+
+    </header>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="hero-content">
+
+                <p class="hero-small">
+                    Aprende de una forma diferente
+                </p>
+
+                <h2 class="hero-title">
+                    Aprende con ayuda de la <span>IA</span>
+                </h2>
+
+                <p class="hero-description">
+                    Explora, juega y descubre nuevas formas de aprender
+                    Español y Matemáticas de una manera sencilla y divertida.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#materias" class="btn-primary">
+                        Comenzar →
+                    </a>
+
+                    <a href="#materias" class="btn-secondary">
+                        Explorar materias
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <!-- Después podemos cambiar esta imagen -->
+                <img src="img/hero/robot-studyai.png"
+                    alt="Robot de StudyAI">
+
+                <div class="hero-message">
+                    ¡Aprender también puede ser divertido!
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             MATERIAS
+        ========================== -->
+
+        <section class="subjects" id="materias">
+
+            <!-- ESPAÑOL -->
+
+            <article class="subject-card spanish-card" id="espanol">
+
+                <div class="subject-image">
+
+                    <img src="img/materias/espanol.png"
+                        alt="Ilustración de Español">
+
+                </div>
+
+                <div class="subject-content">
+
+                    <h3>
+                        Español
+                    </h3>
+
+                    <p>
+                        Lee, escribe, juega y mejora tus habilidades
+                        con actividades educativas y divertidas.
+                    </p>
+
+                    <a href="espanol.html" class="subject-button spanish-button">
+                        Explorar Español →
+                    </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- MATEMÁTICAS -->
+
+            <article class="subject-card math-card" id="matematicas">
+
+                <div class="subject-image">
+
+                    <img src="img/materias/matematicas.png"
+                        alt="Ilustración de Matemáticas">
+
+                </div>
+
+                <div class="subject-content">
+
+                    <h3>
+                        Matemáticas
+                    </h3>
+
+                    <p>
+                        Resuelve, practica y aprende Matemáticas
+                        de forma sencilla, divertida e interactiva.
+                    </p>
+
+                    <a href="matematicas.html" class="subject-button math-button">
+                        Explorar Matemáticas →
+                    </a>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- =========================
+             STUDY AI
+        ========================== -->
+
+        <section class="study-ai-section" id="studyai">
+
+            <div class="study-ai-icon">
+
+                <img src="img/hero/robot-head.png"
+                    alt="Asistente StudyAI">
+
+            </div>
+
+
+            <div class="study-ai-content">
+
+                <h3>
+                    Pregúntale a StudyAI
+                </h3>
+
+                <p>
+                    Haz una pregunta sobre tus tareas,
+                    resuelve dudas o explora nuevos temas.
+                </p>
+
+                <div class="study-ai-form">
+
+                    <input
+                        type="text"
+                        id="question"
+                        placeholder="Escribe tu pregunta aquí...">
+
+                    <button
+                        type="button"
+                        id="askButton">
+
+                        Preguntar
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             CARRUSEL
+        ========================== -->
+
+        <section class="carousel-section">
+
+            <div class="section-title">
+
+                <h3>
+                    Aprende y descubre
+                </h3>
+
+                <p>
+                    Explora diferentes temas mientras aprendes.
+                </p>
+
+            </div>
+
+
+            <div class="carousel">
+
+                <button
+                    class="carousel-button previous"
+                    id="previousButton">
+
+                    ‹
+
+                </button>
+
+
+                <div class="carousel-container"
+                    id="carouselContainer">
+
+
+                    <!-- TARJETA 1 -->
+
+                    <article class="carousel-card">
+
+                        <img
+                            src="img/carrusel/lectura.jpg"
+                            alt="Aventura de la lectura">
+
+                        <h4>
+                            La aventura de la lectura
+                        </h4>
+
+                    </article>
+
+
+                    <!-- TARJETA 2 -->
+
+                    <article class="carousel-card">
+
+                        <img
+                            src="img/carrusel/palabras.jpg"
+                            alt="Juego con palabras">
+
+                        <h4>
+                            Juega con las palabras
+                        </h4>
+
+                    </article>
+
+
+                    <!-- TARJETA 3 -->
+
+                    <article class="carousel-card">
+
+                        <img
+                            src="img/carrusel/numeros.jpg"
+                            alt="Números">
+
+                        <h4>
+                            Números en acción
+                        </h4>
+
+                    </article>
+
+
+                    <!-- TARJETA 4 -->
+
+                    <article class="carousel-card">
+
+                        <img
+                            src="img/carrusel/espacio.jpg"
+                            alt="Espacio">
+
+                        <h4>
+                            Explora el espacio
+                        </h4>
+
+                    </article>
+
+
+                    <!-- TARJETA 5 -->
+
+                    <article class="carousel-card">
+
+                        <img
+                            src="img/carrusel/comunidad.jpg"
+                            alt="Comunidad">
+
+                        <h4>
+                            Descubre tu comunidad
+                        </h4>
+
+                    </article>
+
+
+                </div>
+
+
+                <button
+                    class="carousel-button next"
+                    id="nextButton">
+
+                    ›
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
+             GEOLOCALIZACIÓN
+        ========================== -->
+
+        <section class="location-preview"
+            id="geolocalizacion">
+
+            <div class="location-content">
+
+                <h3>
+                    Geolocalización
+                </h3>
+
+                <p>
+                    Descubre información relacionada con tu comunidad
+                    y aprende sobre el lugar donde vives.
+                </p>
+
+                <a href="geolocalizacion.html"
+                    class="btn-secondary">
+
+                    Ver ubicación
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="footer"
+        id="contacto">
+
+        <div class="footer-logo">
+
+            <div class="logo">
+
+                <div class="logo-icon">
+                    🎓
+                </div>
+
+                <h2>
+                    Study<span>AI</span>
+                </h2>
+
+            </div>
+
+            <p>
+                Aprender hoy, crear un mejor mañana.
+            </p>
+
+        </div>
+
+
+        <div class="social-media">
+
+            <a href="#"
+                target="_blank">
+                Instagram
+            </a>
+
+            <a href="#"
+                target="_blank">
+                YouTube
+            </a>
+
+            <a href="#"
+                target="_blank">
+                Facebook
+            </a>
+
+        </div>
+
+
+        <div class="footer-links">
+
+            <a href="#">
+                Política de privacidad
+            </a>
+
+            <a href="#">
+                Términos de uso
+            </a>
+
+            <a href="#">
+                Contacto
+            </a>
+
+        </div>
+
+
+        <p class="copyright">
+            © 2026 StudyAI. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         GSAP
+    ========================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js"></script>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="js/main.js"></script>
+
+
+</body>
+
+</html>
