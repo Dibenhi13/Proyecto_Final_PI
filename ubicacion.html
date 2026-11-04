@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi ubicación | StudyAI</title>
+
+    <!-- Tipografía -->
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/paginas.css">
+</head>
+<body>
+
+    <!-- NAVEGACIÓN -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="index.html" class="logo">Study<span>AI</span></a>
+
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="ubicacion.html" class="active">Ubicación</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO -->
+    <main class="page-container">
+
+        <section class="page-heading">
+            <span class="tag">EXPLORA CON STUDYAI</span>
+            <h1>¿DÓNDE ESTOY?</h1>
+            <p>
+                ¡Descubre tu ubicación en el mapa!
+                Presiona el botón para explorar dónde te encuentras.
+            </p>
+        </section>
+
+        <section class="location-card">
+
+            <div class="location-info">
+
+                <h2>ENCUENTRA TU UBICACIÓN</h2>
+
+                <p>
+                    Conoce tu ubicación aproximada
+                    de una manera fácil e interactiva.
+                </p>
+
+                <button id="btnUbicacion" class="btn-primary">
+                    Ver mi ubicación
+                </button>
+
+                <p id="mensajeUbicacion" class="status-message" role="status" aria-live="polite">
+                    Presiona el botón para comenzar.
+                </p>
+
+                <div class="privacy-note">
+                    Tu ubicación es privada.
+                    Solo se consulta con tu permiso.
+                </div>
+            </div>
+
+            <!-- MAPA -->
+            <div class="map-container">
+                <div id="mapa" aria-label="Mapa interactivo"></div>
+            </div>
+
+        </section>
+
+        <div class="back-container">
+            <a href="index.html" class="back-link">
+                ← Regresar al inicio
+            </a>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 StudyAI. Aprende, descubre y diviértete.</p>
+    </footer>
+
+    <!-- LIBRERÍAS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+
+    <!-- JS -->
+    <script src="js/ubicacion.js"></script>
+
+</body>
+</html>

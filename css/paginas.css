@@ -1,0 +1,450 @@
+
+/* =========================
+   ESTILOS GENERALES
+========================= */
+
+:root {
+    --azul: #3478f6;
+    --azul-oscuro: #153d91;
+    --azul-claro: #eaf2ff;
+    --fondo: #f5f9ff;
+    --texto: #23304b;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--fondo);
+    color: var(--texto);
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Anton', sans-serif;
+    font-weight: 400;
+    letter-spacing: 1px;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* =========================
+   NAVEGACIÓN
+========================= */
+
+.header {
+    background: white;
+    padding: 20px 7%;
+    box-shadow: 0 3px 20px rgba(0, 0, 0, 0.04);
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.logo {
+    font-family: 'Anton', sans-serif;
+    font-size: 30px;
+    color: var(--azul-oscuro);
+}
+
+.logo span {
+    color: var(--azul);
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--texto);
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links .active {
+    color: var(--azul);
+}
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.page-container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 65px 25px;
+}
+
+.page-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.tag {
+    display: inline-block;
+    background: var(--azul-claro);
+    color: var(--azul);
+    padding: 9px 20px;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.page-heading h1 {
+    font-size: clamp(40px, 6vw, 70px);
+    color: var(--azul-oscuro);
+    margin-bottom: 15px;
+}
+
+.page-heading p {
+    max-width: 550px;
+    margin: auto;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #68758e;
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+.btn-primary {
+    background: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 14px;
+    padding: 16px 26px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    background: var(--azul-oscuro);
+    transform: translateY(-3px);
+}
+
+.btn-primary:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.status-message {
+    margin-top: 15px;
+    font-size: 14px;
+    color: var(--azul-oscuro);
+    font-weight: 700;
+}
+
+/* =========================
+   GEOLOCALIZACIÓN
+========================= */
+
+.location-card {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    background: white;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(34, 81, 162, 0.08);
+}
+
+.location-info {
+    padding: 55px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.location-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--azul-claro);
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    margin-bottom: 25px;
+}
+
+.location-info h2 {
+    color: var(--azul-oscuro);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.location-info > p {
+    line-height: 1.7;
+    color: #68758e;
+    margin-bottom: 25px;
+}
+
+.location-info .status-message {
+    margin-bottom: 0;
+}
+
+.privacy-note {
+    background: var(--azul-claro);
+    color: var(--azul-oscuro);
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 13px;
+    margin-top: 25px;
+    line-height: 1.5;
+}
+
+.map-container {
+    min-height: 480px;
+}
+
+#mapa {
+    width: 100%;
+    height: 100%;
+    min-height: 480px;
+    z-index: 1;
+}
+
+/* =========================
+   CONTACTO
+========================= */
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+}
+
+.contact-card,
+.social-card {
+    background: white;
+    padding: 42px;
+    border-radius: 28px;
+    box-shadow: 0 12px 40px rgba(34, 81, 162, 0.08);
+}
+
+.contact-card h2,
+.social-card h2 {
+    font-size: 30px;
+    color: var(--azul-oscuro);
+    margin-bottom: 12px;
+}
+
+.contact-card > p,
+.social-card > p {
+    color: #68758e;
+    line-height: 1.7;
+    margin-bottom: 30px;
+}
+
+/* Formulario */
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e6ecf5;
+    border-radius: 12px;
+    background: #f9fbff;
+    color: var(--texto);
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--azul);
+    background: white;
+}
+
+.contact-card .btn-primary {
+    width: 100%;
+}
+
+/* Redes sociales */
+
+.contact-emoji {
+    width: 75px;
+    height: 75px;
+    background: var(--azul-claro);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    margin-bottom: 25px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--fondo);
+    color: var(--texto);
+    font-weight: 800;
+    transition: 0.3s;
+}
+
+.social-link i:first-child {
+    font-size: 24px;
+    color: var(--azul);
+}
+
+.social-link i:last-child {
+    margin-left: auto;
+    font-size: 13px;
+}
+
+.social-link:hover {
+    background: var(--azul-claro);
+    transform: translateX(5px);
+}
+
+.contact-note {
+    background: var(--azul-claro);
+    padding: 25px;
+    border-radius: 18px;
+    margin-top: 35px;
+}
+
+.contact-note h3 {
+    color: var(--azul-oscuro);
+    margin-bottom: 10px;
+    font-size: 21px;
+}
+
+.contact-note p {
+    color: #68758e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* =========================
+   REGRESAR Y FOOTER
+========================= */
+
+.back-container {
+    text-align: center;
+    margin-top: 45px;
+}
+
+.back-link {
+    color: var(--azul);
+    font-weight: 800;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.footer {
+    padding: 30px 20px;
+    text-align: center;
+    background: white;
+    color: #8490a6;
+    font-size: 13px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 850px) {
+
+    .location-card,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .location-info {
+        padding: 35px;
+    }
+
+    .map-container,
+    #mapa {
+        min-height: 400px;
+    }
+
+    .contact-card,
+    .social-card {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 520px) {
+
+    .navbar {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 18px;
+        font-size: 13px;
+    }
+
+    .page-container {
+        padding: 45px 18px;
+    }
+
+    .location-info,
+    .contact-card,
+    .social-card {
+        padding: 25px;
+    }
+
+    .location-info h2 {
+        font-size: 28px;
+    }
+
+    .map-container,
+    #mapa {
+        min-height: 340px;
+    }
+}
