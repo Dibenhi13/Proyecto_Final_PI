@@ -1,0 +1,135 @@
+
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <meta name="description" content="Explora las lecciones y ejercicios de Español y Matemáticas en StudyAI.">
+
+  <title>Aprende y explora | StudyAI</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/backend.css">
+  <link rel="stylesheet" href="css/lecciones-extra.css">
+
+  <script defer src="js/explorar.js"></script>
+</head>
+
+<body>
+
+  <!-- NAVEGACIÓN -->
+  <header class="site-header">
+    <nav class="wrap topnav">
+
+      <a class="brand" href="index.html">
+        Study<span>AI</span>
+      </a>
+
+      <div>
+        <a href="index.html">Inicio</a>
+        <a href="explorar.html" aria-current="page">Aprender</a>
+        <a href="ubicacion.html">Ubicación</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="wrap">
+
+    <!-- ENCABEZADO -->
+    <section class="hero">
+      <span class="eyebrow">APRENDE CON STUDYAI</span>
+
+      <h1 id="titulo-principal">¡VAMOS A APRENDER!</h1>
+
+      <p id="descripcion-principal">
+        Elige una materia, descubre una lección y practica con preguntas divertidas.
+      </p>
+    </section>
+
+    <!-- MATERIAS -->
+    <section id="bloque-materias" aria-labelledby="titulo-materias">
+
+      <h2 id="titulo-materias">Elige una materia</h2>
+
+      <div id="materias" class="tilegrid" aria-live="polite">
+        <p>Cargando materias…</p>
+      </div>
+
+    </section>
+
+    <!-- LECCIONES -->
+    <section
+      id="bloque-lecciones"
+      class="section-space"
+      hidden
+      aria-labelledby="titulo-lecciones">
+
+      <h2 id="titulo-lecciones">Lecciones</h2>
+
+      <div id="lecciones" class="tilegrid"></div>
+
+    </section>
+
+    <!-- ACTIVIDADES -->
+    <section
+      id="bloque-actividad"
+      class="section-space"
+      hidden
+      aria-labelledby="titulo-actividad">
+
+      <div class="card">
+
+        <p class="eyebrow" id="etiqueta-leccion"></p>
+
+        <h2 id="titulo-actividad">Practiquemos</h2>
+
+        <p id="contenido-leccion"></p>
+
+        <div id="actividades"></div>
+
+      </div>
+
+    </section>
+
+    <!-- MENSAJES -->
+    <p id="estado" role="status" aria-live="polite"></p>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    StudyAI · Ejercicios educativos para primaria
+
+    <a href="admin/login.php">Administración</a>
+  </footer>
+
+  <!-- DETECCIÓN DE MATERIA -->
+  <script>
+    const parametros = new URLSearchParams(window.location.search);
+    const materiaURL = parametros.get("materia");
+
+    if (materiaURL === "1") {
+
+      document.getElementById("titulo-principal").textContent =
+        "¡APRENDAMOS ESPAÑOL!";
+
+      document.getElementById("descripcion-principal").textContent =
+        "Descubre lecciones de lectura, escritura y lenguaje.";
+
+    } else if (materiaURL === "2") {
+
+      document.getElementById("titulo-principal").textContent =
+        "¡APRENDAMOS MATEMÁTICAS!";
+
+      document.getElementById("descripcion-principal").textContent =
+        "Aprende números, operaciones y matemáticas con ejercicios divertidos.";
+
+    }
+  </script>
+
+</body>
+</html>

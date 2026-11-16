@@ -1,0 +1,32 @@
+/* Añade este archivo DESPUÉS de backend.css */
+.study-intro {font-size:1.05rem;line-height:1.7;margin:1.5rem 0 .5rem}
+.study-muted {opacity:.7;font-size:.95rem}
+.study-actions {display:flex;flex-wrap:wrap;gap:12px;margin:20px 0}
+.btn-study {border:0;border-radius:14px;background:#3478f6;color:white;padding:13px 19px;font-family:Nunito,sans-serif;font-weight:800;cursor:pointer;transition:transform .2s,background .2s}
+.btn-study:hover {transform:translateY(-2px);background:#205bc0}
+.btn-study:disabled {opacity:.5;cursor:wait;transform:none}
+.study-progress-head {display:flex;justify-content:space-between;gap:10px;margin:24px 0 10px;color:#163c88}
+.study-progress {height:12px;background:#e4edfc;border-radius:99px;overflow:hidden;margin-bottom:20px}
+.study-progress-fill {height:100%;background:#3478f6;border-radius:99px;transition:width .3s}
+.question-card {display:grid;gap:14px;padding:22px;border:2px solid #e5eeff;border-radius:20px;background:#f7faff}
+.question-card h3 {font-family:Nunito,sans-serif;font-size:1.15rem;line-height:1.5}
+.question-card label {display:grid;gap:8px;font-weight:700}
+.question-card input {width:100%;padding:13px 15px;border:2px solid #dce8fb;border-radius:12px;font:inherit}
+.question-card button {justify-self:start}
+.study-feedback {font-weight:800;line-height:1.6}
+.study-feedback.ok {color:#19774b}.study-feedback.hint {color:#9b6213}
+.study-ai-output:not(:empty) {margin-top:12px;background:#eaf2ff;color:#163c88;padding:20px;border-radius:18px;white-space:pre-wrap;line-height:1.7}
+.study-ai-output p {margin-top:10px}
+.study-celebration {font-size:4rem;text-align:center;margin:20px 0}
+.study-result-title {font-size:2rem;text-align:center;color:#153d91}
+.study-summary {text-align:center;font-size:1.1rem;margin:12px 0}
+@media(max-width:600px){.study-actions{flex-direction:column}.study-actions button{width:100%}.study-progress-head{font-size:.9rem}}
+
+/* Contenido didáctico enriquecido */
+.lesson-panel {margin:22px 0;padding:25px;border:1px solid #d6e5ff;border-radius:22px;background:#f7faff;color:#1c3b78}
+.lesson-panel-title {font-size:1.6rem;margin:8px 0 18px;color:#153d91}
+.lesson-explanation,.lesson-example-text {white-space:pre-line;line-height:1.85;font-size:1.05rem;margin:0}
+.lesson-example {margin-top:22px;padding:22px;background:#e3efff;border-left:5px solid #3478f6;border-radius:14px}
+.lesson-example strong {display:block;margin-bottom:10px;color:#103b86}
+.lesson-example-text {font-size:1.1rem}
+@media(max-width:600px){.lesson-panel,.lesson-example{padding:17px}}
