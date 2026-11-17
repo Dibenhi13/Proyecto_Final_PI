@@ -1,0 +1,14 @@
+/* StudyAI - Carrusel reparado */
+.studyai-carousel { position: relative; display: flex; align-items: center; gap: 12px; width: 100%; }
+.studyai-carousel .carousel-container { display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; scrollbar-width: none; padding: 12px 2px 20px; flex: 1; min-width: 0; }
+.studyai-carousel .carousel-container::-webkit-scrollbar { display: none; }
+.studyai-carousel .carousel-card { flex: 0 0 clamp(220px, 27%, 320px); min-width: 0; display: flex; flex-direction: column; gap: 12px; text-align: left; color: #12356c; text-decoration: none; background: #fff; border: 1px solid #e7effc; border-radius: 22px; padding: 14px; box-shadow: 0 8px 22px rgba(22,61,120,.06); scroll-snap-align: start; transition: transform .2s ease, box-shadow .2s ease; }
+.studyai-carousel .carousel-card:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(22,61,120,.12); }
+.studyai-carousel .carousel-card img { display: block; width: 100%; aspect-ratio: 8 / 5; height: auto; border-radius: 14px; object-fit: cover; }
+.studyai-carousel .carousel-card h4 { margin: 2px 0 0; font-size: 18px; font-weight: 800; line-height: 1.3; }
+.studyai-carousel .carousel-card span { font-weight: 800; font-size: 14px; color: #3478f6; margin-top: auto; }
+.studyai-carousel .carousel-button { flex: 0 0 46px; width: 46px; height: 46px; border: 0; border-radius: 50%; background: #e7f0ff; color: #3478f6; font-size: 24px; cursor: pointer; display: grid; place-items: center; }
+.studyai-carousel .carousel-button:hover { background: #d3e5ff; }
+.studyai-carousel .carousel-button:disabled { opacity: .35; cursor: default; }
+.studyai-carousel .carousel-card:focus-visible, .studyai-carousel .carousel-button:focus-visible { outline: 3px solid #3478f6; outline-offset: 3px; }
+@media(max-width:700px) { .studyai-carousel { gap: 5px; } .studyai-carousel .carousel-card { flex-basis: 80%; } .studyai-carousel .carousel-button { width: 34px; flex-basis: 34px; height: 34px; font-size: 18px; } }

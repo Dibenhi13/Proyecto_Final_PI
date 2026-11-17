@@ -119,33 +119,6 @@ gsap.fromTo(
 
 
 // ===============================
-// SECCIÓN STUDY AI
-// ===============================
-
-gsap.from(".study-ai-section", {
-    scrollTrigger: {
-        trigger: ".study-ai-section",
-        start: "top 80%"
-    },
-
-    y: 60,
-    opacity: 0,
-    duration: 1
-});
-
-
-// Animación del robot pequeño
-
-gsap.to(".study-ai-icon img", {
-    rotation: 5,
-    duration: 1.5,
-    repeat: -1,
-    yoyo: true,
-    ease: "sine.inOut"
-});
-
-
-// ===============================
 // CARRUSEL
 // ===============================
 

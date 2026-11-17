@@ -22,7 +22,7 @@ function nodo(etiqueta, texto = '', clase = '') {
 const estado = {
   materias: [], materia: null, lecciones: [], leccion: null,
   actividades: [], indice: 0, aciertos: 0, puntos: 0,
-  respondidas: 0, esperando: false, version: 0
+  respondidas: 0, esperando: false, version: 0, progreso: new Map()
 };
 function informar(texto = '') { $('estado').textContent = texto; }
 function tituloMateria(materia) {
@@ -84,36 +84,34 @@ async function seleccionarMateria(materia) {
     const datos = await pedir('lecciones', {materia: materia.id_materia});
     if (version !== estado.version) return;
     estado.lecciones = datos.lecciones || [];
-    const contenedor = $('lecciones');
-    contenedor.replaceChildren();
-    estado.lecciones.forEach((leccion, indice) => {
-      const tarjeta = nodo('button', '', 'tile');
-      tarjeta.type = 'button';
-      const marca = leccionCompletada(leccion) ? ' ✓ Completada' : '';
-      tarjeta.append(
-        nodo('span', `LECCIÓN ${indice + 1} · GRADO ${leccion.nivel}`, 'eyebrow'),
-        nodo('strong', `${leccion.titulo}${marca}`),
-        nodo('small', (leccion.contenido || '').slice(0, 135))
-      );
-      tarjeta.addEventListener('click', () => abrirLeccion(leccion));
-      contenedor.append(tarjeta);
-    });
-    if (!estado.lecciones.length) contenedor.append(nodo('p', 'Todavía no hay lecciones de esta materia.'));
+    mostrarTarjetasLecciones();
     $('bloque-lecciones').scrollIntoView({behavior: 'smooth', block: 'start'});
   } catch (error) { if (version === estado.version) { $('lecciones').replaceChildren(); informar(error.message); } }
 }
-function claveLeccion(leccion) { return `studyai_completada_${leccion.id_leccion}`; }
 function leccionCompletada(leccion) {
-  try { return localStorage.getItem(claveLeccion(leccion)) !== null; }
-  catch { return false; }
+  return estado.progreso.get(String(leccion.id_leccion))?.completada === true;
 }
-function guardarProgreso() {
-  try {
-    localStorage.setItem(claveLeccion(estado.leccion), JSON.stringify({
-      aciertos: estado.aciertos, total: estado.actividades.length,
-      puntos: estado.puntos, fecha: new Date().toISOString()
-    }));
-  } catch { /* El navegador puede bloquear almacenamiento local. */ }
+async function cargarProgreso() {
+  const datos = await pedir('progreso');
+  estado.progreso = new Map((datos.lecciones || []).map(l => [String(l.id_leccion), l]));
+  const resumen = $('resumen-progreso');
+  if (resumen) resumen.textContent = `⭐ ${datos.puntos_totales || 0} puntos guardados · ${datos.aciertos_totales || 0} ejercicios correctos`;
+  // Actualiza las tarjetas sin cambiar de materia ni reiniciar una lección.
+  if (estado.materia && estado.lecciones.length) mostrarTarjetasLecciones();
+}
+function mostrarTarjetasLecciones() {
+  const contenedor = $('lecciones');
+  contenedor.replaceChildren();
+  estado.lecciones.forEach((leccion, indice) => {
+    const tarjeta = nodo('button', '', 'tile'); tarjeta.type = 'button';
+    const detalle = estado.progreso.get(String(leccion.id_leccion));
+    const marca = leccionCompletada(leccion) ? ' ✓ Completada' : '';
+    const avance = detalle ? `${detalle.aciertos}/${detalle.total} ejercicios correctos · ${detalle.puntos} puntos` : (leccion.contenido || '').slice(0,135);
+    tarjeta.append(nodo('span', `LECCIÓN ${indice+1} · GRADO ${leccion.nivel}`, 'eyebrow'), nodo('strong', `${leccion.titulo}${marca}`), nodo('small', avance));
+    tarjeta.addEventListener('click', () => abrirLeccion(leccion));
+    contenedor.append(tarjeta);
+  });
+  if (!estado.lecciones.length) contenedor.append(nodo('p','Todavía no hay lecciones de esta materia.'));
 }
 async function abrirLeccion(leccion) {
   const version = ++estado.version;
@@ -208,6 +206,7 @@ function mostrarPregunta() {
       if (respuesta.correcta) estado.aciertos++;
       estado.puntos += Number(respuesta.puntos_obtenidos || 0);
       estado.respondidas++;
+      try { await cargarProgreso(); } catch (err) { informar('No se pudo recuperar el resumen: ' + err.message); }
       feedback.textContent = respuesta.correcta
         ? `¡Muy bien! ⭐ +${respuesta.puntos_obtenidos || 0} puntos.`
         : 'Buen intento. Repasa la explicación y continúa aprendiendo.';
@@ -227,7 +226,6 @@ function mostrarPregunta() {
 }
 function mostrarResultado() {
   const total = estado.actividades.length;
-  guardarProgreso();
   const caja = $('actividades');
   caja.replaceChildren();
   const porcentaje = total ? Math.round((estado.aciertos / total) * 100) : 0;
@@ -269,4 +267,4 @@ function mostrarAyudaLocal(tipo, pregunta = '') {
   else if (titulo.includes('sinónimo')) pista = 'Busca una palabra que signifique casi lo mismo.';
   contenedor.replaceChildren(nodo('strong', '💡 Pista de StudyAI'), nodo('p', pista));
 }
-cargarMaterias();
+Promise.all([cargarMaterias(), cargarProgreso().catch(error => informar(error.message))]);

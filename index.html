@@ -16,6 +16,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/carrusel-fix.css">
 </head>
 
 <body>
@@ -44,16 +45,12 @@
                 Matemáticas
             </a>
 
-            <a href="#studyai" class="nav-link">
-                StudyAI
-            </a>
-
             <a href="ubicacion.html" class="nav-link">Ubicación</a>
             <a href="contacto.html" class="nav-link">Contacto</a>
 
         </nav>
 
-        <a href="login.html" class="btn-login">
+        <a href="admin/login.php" class="btn-login">
             👤 Login
         </a>
 
@@ -183,175 +180,41 @@
 
 
         <!-- =========================
-             STUDY AI
-        ========================== -->
-
-        <section class="study-ai-section" id="studyai">
-
-            <div class="study-ai-icon">
-
-                <img src="img/hero/robot-head.png"
-                    alt="Asistente StudyAI">
-
-            </div>
-
-
-            <div class="study-ai-content">
-
-                <h3>
-                    Pregúntale a StudyAI
-                </h3>
-
-                <p>
-                    Haz una pregunta sobre tus tareas,
-                    resuelve dudas o explora nuevos temas.
-                </p>
-
-                <div class="study-ai-form">
-
-                    <input
-                        type="text"
-                        id="question"
-                        placeholder="Escribe tu pregunta aquí...">
-
-                    <button
-                        type="button"
-                        id="askButton">
-
-                        Preguntar
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
              CARRUSEL
         ========================== -->
 
-        <section class="carousel-section">
-
-            <div class="section-title">
-
-                <h3>
-                    Aprende y descubre
-                </h3>
-
-                <p>
-                    Explora diferentes temas mientras aprendes.
-                </p>
-
-            </div>
-
-
-            <div class="carousel">
-
-                <button
-                    class="carousel-button previous"
-                    id="previousButton">
-
-                    ‹
-
-                </button>
-
-
-                <div class="carousel-container"
-                    id="carouselContainer">
-
-
-                    <!-- TARJETA 1 -->
-
-                    <article class="carousel-card">
-
-                        <img
-                            src="img/carrusel/lectura.jpg"
-                            alt="Aventura de la lectura">
-
-                        <h4>
-                            La aventura de la lectura
-                        </h4>
-
-                    </article>
-
-
-                    <!-- TARJETA 2 -->
-
-                    <article class="carousel-card">
-
-                        <img
-                            src="img/carrusel/palabras.jpg"
-                            alt="Juego con palabras">
-
-                        <h4>
-                            Juega con las palabras
-                        </h4>
-
-                    </article>
-
-
-                    <!-- TARJETA 3 -->
-
-                    <article class="carousel-card">
-
-                        <img
-                            src="img/carrusel/numeros.jpg"
-                            alt="Números">
-
-                        <h4>
-                            Números en acción
-                        </h4>
-
-                    </article>
-
-
-                    <!-- TARJETA 4 -->
-
-                    <article class="carousel-card">
-
-                        <img
-                            src="img/carrusel/espacio.jpg"
-                            alt="Espacio">
-
-                        <h4>
-                            Explora el espacio
-                        </h4>
-
-                    </article>
-
-
-                    <!-- TARJETA 5 -->
-
-                    <article class="carousel-card">
-
-                        <img
-                            src="img/carrusel/comunidad.jpg"
-                            alt="Comunidad">
-
-                        <h4>
-                            Descubre tu comunidad
-                        </h4>
-
-                    </article>
-
-
-                </div>
-
-
-                <button
-                    class="carousel-button next"
-                    id="nextButton">
-
-                    ›
-
-                </button>
-
-            </div>
-
-        </section>
+        <section class="carousel-section" aria-labelledby="titulo-carrusel">
+  <div class="section-title">
+    <h3 id="titulo-carrusel">Aprende y descubre</h3>
+    <p>Explora diferentes temas mientras aprendes.</p>
+  </div>
+  <div class="carousel studyai-carousel" aria-roledescription="carrusel">
+    <button class="carousel-button previous" id="previousButton" type="button" aria-label="Anterior">&#10094;</button>
+    <div class="carousel-container" id="carouselContainer" tabindex="0" aria-label="Temas educativos, desliza para explorar">
+      <a class="carousel-card" href="explorar.html?materia=1">
+        <img src="img/carrusel/lectura.svg" alt="Libro abierto" loading="lazy">
+        <h4>La aventura de la lectura</h4><span>Ver Español →</span>
+      </a>
+      <a class="carousel-card" href="explorar.html?materia=1">
+        <img src="img/carrusel/palabras.svg" alt="Bloques con letras A B C" loading="lazy">
+        <h4>Juega con las palabras</h4><span>Ver Español →</span>
+      </a>
+      <a class="carousel-card" href="explorar.html?materia=2">
+        <img src="img/carrusel/numeros.svg" alt="Calculadora con una suma" loading="lazy">
+        <h4>Números en acción</h4><span>Ver Matemáticas →</span>
+      </a>
+      <a class="carousel-card" href="explorar.html">
+        <img src="img/carrusel/espacio.svg" alt="Planeta con anillos" loading="lazy">
+        <h4>Explora el espacio</h4><span>Ver más materias →</span>
+      </a>
+      <a class="carousel-card" href="ubicacion.html">
+        <img src="img/carrusel/comunidad.svg" alt="Casas de una comunidad" loading="lazy">
+        <h4>Descubre tu comunidad</h4><span>Ver ubicación →</span>
+      </a>
+    </div>
+    <button class="carousel-button next" id="nextButton" type="button" aria-label="Siguiente">&#10095;</button>
+  </div>
+</section>
 
 
         <!-- =========================
@@ -416,19 +279,14 @@
 
         <div class="social-media">
 
-            <a href="#"
+            <a href="https://www.instagram.com/bydibenhii/"
                 target="_blank">
                 Instagram
             </a>
 
-            <a href="#"
+            <a href="https://www.youtube.com/@bydibenhi"
                 target="_blank">
                 YouTube
-            </a>
-
-            <a href="#"
-                target="_blank">
-                Facebook
             </a>
 
         </div>
@@ -470,6 +328,8 @@
     <!-- JAVASCRIPT -->
 
     <script src="js/main.js"></script>
+    <script defer src="js/carrusel-fix.js"></script>
+
 
 
 </body>

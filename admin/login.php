@@ -7,18 +7,22 @@ if ($_SERVER['REQUEST_METHOD']==='POST') {
     validar_token();
     $usuario = trim((string)($_POST['usuario'] ?? ''));
     $clave = (string)($_POST['clave'] ?? '');
-    if (strlen($usuario)>60 || strlen($clave)>1024) { $error='Datos inválidos'; }
+    if (($_SESSION['bloqueo_hasta'] ?? 0) > time()) { $error='Demasiados intentos. Inténtalo más tarde.'; }
+    elseif (strlen($usuario)>60 || strlen($clave)>1024) { $error='Datos inválidos'; }
     else {
         try {
             $stmt = bd()->prepare('SELECT id_admin,password_hash FROM administradores WHERE usuario=?');
             $stmt->execute([$usuario]);
             $admin=$stmt->fetch();
             if ($admin && password_verify($clave,$admin['password_hash'])) {
+                unset($_SESSION['fallos_login'], $_SESSION['bloqueo_hasta']);
                 session_regenerate_id(true);
                 $_SESSION['admin_id'] = (int)$admin['id_admin'];
                 $_SESSION['usuario'] = $usuario;
                 header('Location: index.php'); exit;
             }
+            $_SESSION['fallos_login'] = (int)($_SESSION['fallos_login'] ?? 0) + 1;
+            if ($_SESSION['fallos_login'] >= 5) { $_SESSION['bloqueo_hasta'] = time() + 900; $_SESSION['fallos_login']=0; }
             $error='Usuario o contraseña incorrectos';
         } catch (Throwable $e) { $error='No se pudo iniciar sesión'; }
     }

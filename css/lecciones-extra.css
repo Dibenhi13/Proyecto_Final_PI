@@ -30,3 +30,5 @@
 .lesson-example strong {display:block;margin-bottom:10px;color:#103b86}
 .lesson-example-text {font-size:1.1rem}
 @media(max-width:600px){.lesson-panel,.lesson-example{padding:17px}}
+
+.progress-summary{padding:16px 20px;background:#e9f2ff;color:#153d91;border-radius:16px;font-weight:800;text-align:center;margin-bottom:28px}
